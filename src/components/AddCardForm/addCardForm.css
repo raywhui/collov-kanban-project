@@ -1,0 +1,22 @@
+#add-card-form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  max-width: 500px;
+  width: 100%;
+  padding: 4%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+}
+
+#add-card-form .input {
+  margin: 0 0 10px 0;
+}
+
+#add-card-form .file-name {
+  margin: 10px 0;
+}
+
+#add-card-form .upload-card {
+  width: 50%;
+  margin: 50px auto 0 auto;
+}
