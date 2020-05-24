@@ -7,6 +7,10 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import logo from '../../assets/logo_white.png';
+
+import './Header.css';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,8 +30,9 @@ const Header = (props) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+          <img className="header-logo" src={logo} alt="Logo" />
           <Typography variant="h6" className={classes.title}>
-            News
+            Hiring Kanban
           </Typography>
           <Button color="inherit">Logout</Button>
         </Toolbar>

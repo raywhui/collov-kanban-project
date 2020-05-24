@@ -1,6 +1,7 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import Home from './pages/Home';
+import Provider from './provider';
 import './App.css';
 
 // Changes main theme colors
@@ -19,7 +20,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Home />
+        <Provider>
+          <Home />
+        </Provider>
       </div>
     </ThemeProvider>
   );

@@ -31,5 +31,6 @@ app.use(bodyParser.json());
 app.use('/api', routes);
 
 app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/test', (req, res) => res.send(console.log('hey!')));
 
 app.listen(port, () => console.log(`Running on http://localhost:${port}`));

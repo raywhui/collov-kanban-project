@@ -18,8 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const KanbanModal = (props) => {
-  const { modalState, setModalState, children } = props;
+const KanbanModal = ({ modalState, setModalState, children }) => {
   const classes = useStyles();
 
   return (

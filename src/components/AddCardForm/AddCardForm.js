@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-import './addCardForm.css';
+import './AddCardForm.css';
 
 const AddCardForm = (props) => {
   const [fileUploadState, setFileUploadState] = useState(null);
@@ -64,7 +64,7 @@ const AddCardForm = (props) => {
         color="primary"
         component="label"
         // TODO: Set onCick to close modal
-        onClick={''}
+        onClick={() => console.log('test')}
       >
         Add Card
       </Button>

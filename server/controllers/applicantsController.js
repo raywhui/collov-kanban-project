@@ -5,6 +5,7 @@ const findAll = async (req, res) => {
   try {
     const data = await Applicants.find();
     res.send(data);
+    console.log('Data sent.');
   } catch (err) {
     res.status(500).send(err);
   }

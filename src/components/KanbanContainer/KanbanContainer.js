@@ -1,8 +1,8 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import './kanbanContainer.css';
+import './KanbanContainer.css';
 
-const KanbanContainer = (props) => {
-  return <div className="kanban-container">{props.children}</div>;
+const KanbanContainer = ({ children }) => {
+  return <div className="kanban-container">{children}</div>;
 };
 export default KanbanContainer;
