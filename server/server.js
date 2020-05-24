@@ -4,13 +4,16 @@ import { default as bodyParser } from 'body-parser';
 
 import { routes } from './routes';
 
+require('dotenv').config();
+
 const app = express();
 const port = process.env.PORT || 3001;
 
 /*
   Initialize mongoDB
 */
-const mongoDB = 'mongodb://localhost:27017/kanban';
+const mongoDB = `mongodb://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@localhost:27017/kanban?authSource=admin`;
+// const mongoDB = 'mongodb://localhost:27017/kanban';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Get the default connection
