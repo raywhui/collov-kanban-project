@@ -8,6 +8,7 @@ import AddCardForm from '../AddCardForm';
 import Context from '../../context';
 
 import { changeSwimlanes, changeCardOrder } from './Swimlane.utils';
+import { updateApplicantDB } from '../../apis';
 import './Swimlane.css';
 
 const Swimlane = ({
@@ -30,6 +31,7 @@ const Swimlane = ({
       onDrop={(e) => {
         const applicantId = e.dataTransfer.getData('id');
         const oldStatus = e.dataTransfer.getData('status');
+        console.log(JSON.stringify(oldStatus));
         const newStatus = title;
         if (oldStatus !== newStatus) {
           changeSwimlanes(
@@ -39,6 +41,9 @@ const Swimlane = ({
             setSwimlaneStates,
             swimlaneStates
           );
+          updateApplicantDB(applicantId, {
+            status: { title, order: 0 },
+          });
         } else if (oldStatus === newStatus) {
           changeCardOrder(
             currentCardIndex,
@@ -66,7 +71,11 @@ const Swimlane = ({
               <AddIcon />
             </IconButton>
             <KanbanModal modalState={modalState} setModalState={setModalState}>
-              <AddCardForm />
+              <AddCardForm
+                setModalState={setModalState}
+                setSwimlaneStates={setSwimlaneStates}
+                swimlaneStates={swimlaneStates}
+              />
             </KanbanModal>
           </div>
         ) : (

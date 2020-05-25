@@ -5,3 +5,21 @@
   filter: brightness(0.7);
   transition: filter 250ms linear;
 }
+.sl-card .card-action-box {
+  padding: 16px;
+}
+.sl-card hr.comments-divider {
+  margin: 10px 0;
+}
+.sl-card .more-info {
+  margin-left: auto;
+}
+.sl-card .expanded-icon {
+  transform: rotate(180deg);
+}
+.sl-card .comment-input {
+  width: 100%;
+}
+.sl-card .add-comment-button {
+  margin-left: auto;
+}

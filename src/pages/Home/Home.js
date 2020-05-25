@@ -34,26 +34,17 @@ const Home = (props) => {
     initialSLStates[data] = [];
   });
   applicants.forEach((data) => {
-    initialSLStates[data.status].push(data);
+    initialSLStates[data.status.title].push(data);
   });
 
   useEffect(() => {
     console.log('state change');
   }, [swimlaneStates]);
 
+  // Tracks card order changes
   useEffect(() => {
     console.log(currentCardIndex);
     console.log(newCardIndex);
-
-    if (currentCardIndex > newCardIndex) {
-      console.log('%cThis sjould be moved up', 'color: green');
-    } else if (currentCardIndex < newCardIndex) {
-      console.log('%cThis sjould be moved down', 'color: green');
-    } else {
-      console.log('%cDont do anything', 'color: green');
-      console.log('%cCurrentIndex:' + currentCardIndex, 'color: green');
-      console.log('%cNewIndex:' + newCardIndex, 'color: green');
-    }
   }, [currentCardIndex, newCardIndex]);
 
   return (
@@ -75,16 +66,14 @@ const Home = (props) => {
                   applicantData={data}
                   key={j}
                   cardIndex={j}
+                  setSwimlaneStates={setSwimlaneStates}
+                  swimlaneStates={swimlaneStates}
                   setCurrentCardIndex={setCurrentCardIndex}
                   setNewCardIndex={setNewCardIndex}
                 />
               ))}
-              {/* {applicants
-                .filter((data) => data.status === label)
-                .map((data, j) => (
-                  <SLCard applicantData={data} key={j} />
-                ))*/}
-              {applicants.filter((data) => data.status === label).length === 0
+              {applicants.filter((data) => data.status.title === label)
+                .length === 0
                 ? 'No Cards Yet :('
                 : ''}
             </Swimlane>

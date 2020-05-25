@@ -19,10 +19,17 @@ const ApplicantSchema = new mongoose.Schema(
     },
     comments: {
       default: '',
-      type: String,
+      type: Array,
       trim: true,
     },
-    status: { type: String, default: 'Applied' },
+    status: {
+      title: { required: true, type: String, default: 'Applied' },
+      order: { required: true, type: Number, default: 0 },
+    },
+    rating: {
+      type: Number,
+      default: 0,
+    },
   },
   { collection: 'Applicants' }
 );

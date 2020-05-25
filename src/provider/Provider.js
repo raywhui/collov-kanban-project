@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Context from '../context/Context';
 
+// MOVE TO API FOLDER VVVV
 const getApplicantsUrl = '/api/applicants';
 
 const applicantsList = async () => {
@@ -9,10 +10,7 @@ const applicantsList = async () => {
   const data = await response.json();
   return data;
 };
-
-// fetch(getApplicantsUrl)
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
+// MOVE TO API FOLDER  ^^^^^
 
 const Provider = ({ children }) => {
   const [store, setStore] = useState([]);

@@ -30,7 +30,7 @@ const changeSwimlanes = (
     (data) => data._id === applicantId
   );
   const removed = swimlaneStates[oldStatus].splice(index, 1);
-  removed[0].status = newStatus;
+  removed[0].status.title = newStatus;
   swimlaneStates[newStatus].push(removed[0]);
   setSwimlaneStates({
     ...swimlaneStates,

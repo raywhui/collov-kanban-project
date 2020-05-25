@@ -1,3 +1,3 @@
-import Applicants from './applicants.js';
+import Applicants from './applicantsModel.js';
 
 export { Applicants };

@@ -15,4 +15,6 @@ router
   .put(applicantsController.updateOne)
   .delete(applicantsController.deleteOne);
 
+router.route('/applicants/:status').put(applicantsController.updateOrder);
+
 export default router;

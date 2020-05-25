@@ -13,9 +13,17 @@ const findAll = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const applicant = new Applicants(req.body);
+    const findAppliedApplicants = await Applicants.find({
+      'status.title': 'Applied',
+    });
+    console.log(findAppliedApplicants.length);
+    const newBody = req.body;
+    newBody.status = {
+      order: findAppliedApplicants.length + 1,
+    };
+    const applicant = new Applicants(newBody);
     await applicant.save();
-    res.send(applicant);
+    res.send({ applicant, created: true });
     console.log('created');
   } catch (err) {
     res.status(500).send(err);
@@ -25,6 +33,31 @@ const create = async (req, res) => {
 const updateOne = async (req, res) => {
   try {
     const data = await Applicants.findOne({ _id: req.params.id });
+    console.log(req.body);
+
+    // Loop through any changes and update data
+    for (let key in req.body) {
+      console.log(req.body);
+      if (key === 'comments') {
+        if (req.body[key].length > 0 && req.body[key].length <= 280) {
+          data[key].push(req.body[key]);
+        } else {
+          return res.send('unacceptable character limit');
+        }
+      } else {
+        data[key] = req.body[key];
+      }
+    }
+    await data.save();
+    res.send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+
+const updateOrder = async (req, res) => {
+  try {
+    const data = await Applicants.find({ 'statis.title': req.params.status });
     console.log(req.body);
 
     // Loop through any changes and update data
@@ -56,6 +89,7 @@ const applicantsController = {
   findAll,
   create,
   updateOne,
+  updateOrder,
   deleteOne,
 };
 

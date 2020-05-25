@@ -1,4 +1,4 @@
-import router from './applicants.js';
+import router from './applicantsRoutes.js';
 
 const routes = router;
 
