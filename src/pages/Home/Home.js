@@ -16,7 +16,7 @@ const initialSLStates = {
 
 const swimlaneLabels = Object.keys(initialSLStates);
 
-const Home = (props) => {
+const Home = ({ setAuth }) => {
   const [swimlaneStates, setSwimlaneStates] = useState(initialSLStates);
   const [currentCardIndex, setCurrentCardIndex] = useState('');
   const [newCardIndex, setNewCardIndex] = useState('');
@@ -42,7 +42,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <Header />
+      <Header setAuth={setAuth} />
       <KanbanContainer>
         {swimlaneLabels.map((label, i) => {
           return (

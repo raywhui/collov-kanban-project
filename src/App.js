@@ -26,7 +26,7 @@ function App() {
       <div className="App">
         {auth === 'success' ? (
           <Provider>
-            <Home />
+            <Home setAuth={setAuth} />
           </Provider>
         ) : (
           <Login setAuth={setAuth} />

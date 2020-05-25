@@ -19,13 +19,11 @@ const addUser = async (req, res) => {
 const authenticateUser = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username }).exec();
-    console.log(req.session);
     if (!user) {
       return res.status(400).send({ message: 'The username does not exist' });
     }
     bcrypt.compare(req.body.password, user.password, function (err, result) {
       // result == true
-      console.log(result);
       result
         ? res.send({
             message: 'success',

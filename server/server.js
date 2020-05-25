@@ -7,7 +7,6 @@ import GridFsStorage from 'multer-gridfs-storage';
 import Grid from 'gridfs-stream';
 import multer from 'multer';
 import session from 'express-session';
-import uuid from 'uuid';
 
 import { routes } from './routes';
 
@@ -36,15 +35,6 @@ db.once('open', function () {
   gfs = Grid(db);
   gfs.collection('Applicants');
 });
-
-// const conn = mongoose.createConnection(mongoURI);
-// const gridFSBucket = new mongoose.mongo.GridFSBucket(conn.db, {
-//   bucketName: 'Applicants',
-// });
-
-// const gfs = new mongoose.mongo.GridFSBucket(mongoose.connection.db, {
-//   bucketName: 'Applicants',
-// });
 
 /*
  * @desc Initialize gridfs for resume storage
@@ -95,11 +85,6 @@ app.use(bodyParser.json());
  */
 app.use(
   session({
-    // genid: (req) => {
-    //   console.log('Inside the session middleware');
-    //   console.log(req.sessionID);
-    //   return uuid(); // use UUIDs for session IDs
-    // },
     secret: 'work hard',
     resave: true,
     saveUninitialized: false,

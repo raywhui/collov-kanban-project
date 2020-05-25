@@ -1,11 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 
 import KanbanModal from '../KanbanModal';
 import AddCardForm from '../AddCardForm';
-import Context from '../../context';
 
 import { changeSwimlanes, changeCardOrder } from './Swimlane.utils';
 import { updateApplicantDB } from '../../apis';
@@ -20,7 +19,6 @@ const Swimlane = ({
   newCardIndex,
 }) => {
   const [modalState, setModalState] = useState(false);
-  const { store: applicants, updateStore } = useContext(Context);
 
   return (
     <div
