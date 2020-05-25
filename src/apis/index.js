@@ -1,3 +1,16 @@
+const userLogin = async (postData) => {
+  const response = await fetch(`/api/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  });
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
 /**
  * POST
  * @desc adds new applicant to database
@@ -64,6 +77,7 @@ const updateApplicantOrderDB = async (status, updateData) => {
 };
 
 export {
+  userLogin,
   addNewApplicant,
   updateApplicantDB,
   getResume,

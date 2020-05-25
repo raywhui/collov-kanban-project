@@ -1,0 +1,14 @@
+.login-page {
+  max-width: 500px;
+  /* height: 700px; */
+  position: absolute;
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+}
+.login-page .login-title {
+  margin: 0 0 30px 0;
+}
+.login-page .login-input {
+  margin: 0 0 30px 0;
+}

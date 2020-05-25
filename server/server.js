@@ -6,6 +6,8 @@ import path from 'path';
 import GridFsStorage from 'multer-gridfs-storage';
 import Grid from 'gridfs-stream';
 import multer from 'multer';
+import session from 'express-session';
+import uuid from 'uuid';
 
 import { routes } from './routes';
 
@@ -89,15 +91,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 /*
+ * @desc Maintain login session
+ */
+app.use(
+  session({
+    // genid: (req) => {
+    //   console.log('Inside the session middleware');
+    //   console.log(req.sessionID);
+    //   return uuid(); // use UUIDs for session IDs
+    // },
+    secret: 'work hard',
+    resave: true,
+    saveUninitialized: false,
+  })
+);
+
+/*
  * @desc Middleware to allow routers to pass through /api endpoint (ie /api/applicants/)
  */
 app.use('/api', upload.single('resume'), routes);
 
-app.get('/', (req, res) => res.send('Hello World!'));
-
 /* @route
  * @desc get resume file
  */
+app.get('/', (req, res) => res.send('Hello World!'));
+
 app.get('/files/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     // Check if file exists
