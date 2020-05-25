@@ -4,7 +4,7 @@ import { applicantsController } from '../controllers';
 // API Routes Test
 const router = express.Router();
 
-// Definte route GET,POST
+// Define route GET,POST
 router
   .route('/applicants')
   .get(applicantsController.findAll)

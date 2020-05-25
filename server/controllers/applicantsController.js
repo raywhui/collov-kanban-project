@@ -1,11 +1,11 @@
 import { Applicants } from '../models';
-
+import Busboy from 'busboy';
 // Display list of all applicants
 const findAll = async (req, res) => {
   try {
     const data = await Applicants.find();
     res.send(data);
-    console.log('Data sent.');
+    console.log('Data sent to client.');
   } catch (err) {
     res.status(500).send(err);
   }
@@ -16,15 +16,18 @@ const create = async (req, res) => {
     const findAppliedApplicants = await Applicants.find({
       'status.title': 'Applied',
     });
-    console.log(findAppliedApplicants.length);
     const newBody = req.body;
     newBody.status = {
       order: findAppliedApplicants.length + 1,
     };
+    newBody.resume = req.file.filename;
+    console.log(req.file.filename);
+    console.log(newBody);
     const applicant = new Applicants(newBody);
     await applicant.save();
-    res.send({ applicant, created: true });
+    res.send({ applicant, created: true, file: req.file });
     console.log('created');
+    console.log(req.file.filename);
   } catch (err) {
     res.status(500).send(err);
   }

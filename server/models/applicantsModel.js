@@ -15,10 +15,9 @@ const ApplicantSchema = new mongoose.Schema(
     resume: {
       type: String,
       required: true,
-      trim: true,
     },
     comments: {
-      default: '',
+      default: [],
       type: Array,
       trim: true,
     },

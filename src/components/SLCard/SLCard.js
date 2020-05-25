@@ -10,6 +10,8 @@ import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
 
 import { addComment, addCommentToState } from './SLCard.utils';
+import { getResume } from '../../apis';
+
 import './SLCard.css';
 
 const SLCard = ({
@@ -64,7 +66,7 @@ const SLCard = ({
           size="medium"
           variant="outlined"
           onClick={() => {
-            fetch('/test').then((res) => console.log(res));
+            getResume('');
           }}
         >
           Resume
@@ -91,15 +93,15 @@ const SLCard = ({
           </Typography>
           <Divider className="comments-divider" />
           {comments.length > 0 ? (
-            comments.map((comment) => {
+            comments.map((comment, i) => {
               return (
-                <Typography align="left" paragraph variant="body">
+                <Typography key={i} align="left" paragraph variant="body1">
                   &#9679; {comment}
                 </Typography>
               );
             })
           ) : (
-            <Typography align="left" paragraph variant="body">
+            <Typography align="left" paragraph variant="body1">
               No comments have been made yet.
             </Typography>
           )}

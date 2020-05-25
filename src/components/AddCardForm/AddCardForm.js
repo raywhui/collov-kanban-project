@@ -57,16 +57,17 @@ const AddCardForm = ({ setModalState, setSwimlaneStates, swimlaneStates }) => {
             setFileUploadState(e.target.files[0].name);
             setApplicantState({
               ...applicantState,
-              resume: e.target.files[0].name,
+              resume: e.target.files[0],
             });
             console.log('file uploaded:', e.target.files[0]);
           }}
           type="file"
+          name="file"
           style={{ display: 'none' }}
           accept="application/pdf, .doc,.docx"
         />
       </Button>
-      <Typography className="file-name" variant="subtitle">
+      <Typography className="file-name" variant="subtitle1">
         {fileUploadState ? fileUploadState : 'No File Uploaded'}
       </Typography>
       {errorState.resume ? 'Resume Required*' : ''}
@@ -75,7 +76,6 @@ const AddCardForm = ({ setModalState, setSwimlaneStates, swimlaneStates }) => {
         variant="contained"
         color="primary"
         component="label"
-        // TODO: Set onCick to close modal
         onClick={async () => {
           const response = await addNewApplicant(applicantState);
           if (response.created) {
@@ -88,6 +88,7 @@ const AddCardForm = ({ setModalState, setSwimlaneStates, swimlaneStates }) => {
             setModalState(false);
             setErrorState(intialErrorState);
           } else {
+            // Create error states if fails to send
             let newErrors = { ...intialErrorState };
             Object.keys(response.errors).forEach((label) => {
               newErrors[label] = true;

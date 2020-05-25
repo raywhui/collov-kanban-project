@@ -5,15 +5,6 @@ import Swimlane from '../../components/Swimlane';
 import SLCard from '../../components/SLCard';
 import Context from '../../context';
 
-const swimlaneLabels = [
-  'Applied',
-  'Phone Screen',
-  'On site',
-  'Offered',
-  'Accepted',
-  'Rejected',
-];
-
 const initialSLStates = {
   Applied: [],
   'Phone Screen': [],
@@ -22,6 +13,8 @@ const initialSLStates = {
   Accepted: [],
   Rejected: [],
 };
+
+const swimlaneLabels = Object.keys(initialSLStates);
 
 const Home = (props) => {
   const [swimlaneStates, setSwimlaneStates] = useState(initialSLStates);
