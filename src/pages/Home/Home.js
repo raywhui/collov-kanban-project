@@ -65,8 +65,9 @@ const Home = (props) => {
                   setNewCardIndex={setNewCardIndex}
                 />
               ))}
-              {applicants.filter((data) => data.status.title === label)
-                .length === 0
+              {swimlaneStates[label].filter(
+                (data) => data.status.title === label
+              ).length === 0
                 ? 'No Cards Yet :('
                 : ''}
             </Swimlane>

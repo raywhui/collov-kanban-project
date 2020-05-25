@@ -11,6 +11,9 @@
 .sl-card hr.comments-divider {
   margin: 10px 0;
 }
+.sl-card a.resume-button-wrapper {
+  text-decoration: none;
+}
 .sl-card .more-info {
   margin-left: auto;
 }

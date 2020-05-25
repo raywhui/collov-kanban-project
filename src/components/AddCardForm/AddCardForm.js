@@ -90,8 +90,11 @@ const AddCardForm = ({ setModalState, setSwimlaneStates, swimlaneStates }) => {
           } else {
             // Create error states if fails to send
             let newErrors = { ...intialErrorState };
-            Object.keys(response.errors).forEach((label) => {
-              newErrors[label] = true;
+            console.log(response);
+            Object.keys(applicantState).forEach((label) => {
+              if (!applicantState[label]) {
+                newErrors[label] = true;
+              }
             });
             setErrorState(newErrors);
           }

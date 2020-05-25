@@ -23,4 +23,13 @@ const addCommentToState = (
   }
 };
 
-export { addComment, addCommentToState };
+const downloadResume = (filename) => {
+  setTimeout(() => {
+    const response = {
+      file: `http://localhost:3001/files/${filename}`,
+    };
+    window.open(response.file);
+  }, 100);
+};
+
+export { addComment, addCommentToState, downloadResume };

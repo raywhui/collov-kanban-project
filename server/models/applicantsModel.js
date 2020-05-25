@@ -30,7 +30,7 @@ const ApplicantSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { collection: 'Applicants' }
+  { collection: 'Applicants', usePushEach: true }
 );
 
 const Applicants = mongoose.model('Applicants', ApplicantSchema);

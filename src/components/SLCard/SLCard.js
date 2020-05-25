@@ -9,8 +9,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
 
-import { addComment, addCommentToState } from './SLCard.utils';
-import { getResume } from '../../apis';
+import { addComment, addCommentToState, downloadResume } from './SLCard.utils';
 
 import './SLCard.css';
 
@@ -61,16 +60,25 @@ const SLCard = ({
         </Typography>
       </CardContent>
       <CardActions>
+        {/* <a
+          // href="http://localhost:3001/files/a57ce275bd6480f61bc70d011b48be33.pdf"
+          href="/files/a57ce275bd6480f61bc70d011b48be33.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="resume-button-wrapper"
+        > */}
         <Button
           color="primary"
           size="medium"
           variant="outlined"
           onClick={() => {
-            getResume('');
+            downloadResume(resume);
           }}
         >
           Resume
         </Button>
+        {/* </a> */}
+
         <Button
           className="more-info"
           color="primary"

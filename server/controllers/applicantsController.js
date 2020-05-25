@@ -1,5 +1,5 @@
 import { Applicants } from '../models';
-import Busboy from 'busboy';
+
 // Display list of all applicants
 const findAll = async (req, res) => {
   try {
@@ -22,12 +22,9 @@ const create = async (req, res) => {
     };
     newBody.resume = req.file.filename;
     console.log(req.file.filename);
-    console.log(newBody);
     const applicant = new Applicants(newBody);
     await applicant.save();
     res.send({ applicant, created: true, file: req.file });
-    console.log('created');
-    console.log(req.file.filename);
   } catch (err) {
     res.status(500).send(err);
   }
@@ -36,11 +33,10 @@ const create = async (req, res) => {
 const updateOne = async (req, res) => {
   try {
     const data = await Applicants.findOne({ _id: req.params.id });
-    console.log(req.body);
 
     // Loop through any changes and update data
     for (let key in req.body) {
-      console.log(req.body);
+      console.log(`UpdatedOne Req:`, req.body);
       if (key === 'comments') {
         if (req.body[key].length > 0 && req.body[key].length <= 280) {
           data[key].push(req.body[key]);
