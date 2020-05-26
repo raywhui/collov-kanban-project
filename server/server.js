@@ -18,7 +18,9 @@ const port = process.env.PORT || 3001;
 /*
  * @desc Initialize mongoDB
  */
-const mongoURI = `mongodb://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@localhost:27017/kanban?authSource=admin`;
+const mongoURI =
+  process.env.MONGODB_URI ||
+  `mongodb://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@localhost:27017/kanban?authSource=admin`;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Get the default connection
