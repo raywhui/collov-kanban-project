@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 import { addNewApplicant } from '../../apis';
-import './AddCardForm.css';
+// import './AddCardForm.css';
 
 const intialErrorState = {
   name: false,
