@@ -11,7 +11,7 @@ import Divider from '@material-ui/core/Divider';
 
 import { addComment, addCommentToState, downloadResume } from './SLCard.utils';
 
-import './SLCard.css';
+import './slcard.css';
 
 const SLCard = ({
   applicantData,

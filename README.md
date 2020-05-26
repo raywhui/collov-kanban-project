@@ -46,6 +46,7 @@ npm run start
 
 - Kanban board styling similar to Trello
 - Homebrewed card drag and drop
+- Overflow for swimlanes and cards
 - Applicant status updates database on swimlane changes
 - Commenting system on cards
 - Uploadable/Downloadable Resumes (.doc, .docx, .pdf enforced both on frontend and backend)

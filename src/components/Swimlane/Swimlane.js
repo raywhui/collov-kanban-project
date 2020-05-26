@@ -8,7 +8,7 @@ import AddCardForm from '../AddCardForm';
 
 import { changeSwimlanes, changeCardOrder } from './Swimlane.utils';
 import { updateApplicantDB } from '../../apis';
-import './Swimlane.css';
+import './swimlane.css';
 
 const Swimlane = ({
   title,

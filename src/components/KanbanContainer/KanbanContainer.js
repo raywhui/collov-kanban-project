@@ -1,5 +1,5 @@
 import React from 'react';
-import './KanbanContainer.css';
+import './kanbanContainer.css';
 
 const KanbanContainer = ({ children }) => {
   return <div className="kanban-container">{children}</div>;
