@@ -57,5 +57,7 @@
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2"
   },
-  "proxy": "http://localhost:3001"
+  "engines": {
+    "node": "10.x"
+  }
 }
