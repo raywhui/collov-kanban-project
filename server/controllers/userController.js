@@ -3,14 +3,21 @@ import bcrypt from 'bcrypt';
 
 const addUser = async (req, res) => {
   try {
-    const userData = {
+    const userExist = await User.findOne({
       username: req.body.username,
-      password: req.body.password,
-    };
-    console.log(userData);
-    const user = new User(userData);
-    await user.save();
-    res.send('user creation success');
+    }).exec();
+    if (!userExist) {
+      const userData = {
+        username: req.body.username,
+        password: req.body.password,
+      };
+      console.log(userData);
+      const user = new User(userData);
+      await user.save();
+      return res.send({ message: 'success' });
+    } else {
+      return res.send({ message: 'username taken' });
+    }
   } catch (err) {
     res.status(500).send(err);
   }
@@ -29,7 +36,7 @@ const authenticateUser = async (req, res) => {
             message: 'success',
           })
         : res.send({
-            status: 'he username and password combination is incorrect!',
+            message: 'passwordInvalid',
           });
     });
   } catch (err) {

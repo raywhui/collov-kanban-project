@@ -1,5 +1,30 @@
+/**
+ * POST
+ * @desc authenticates user
+ * @param {Object} postData - data from state
+ * @returs {Object} - JSON object of success
+ */
 const userLogin = async (postData) => {
   const response = await fetch(`/api/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  });
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
+/**
+ * POST
+ * @desc adds new user to database
+ * @param {Object} postData - data from state
+ * @returs {Object} - JSON object of success
+ */
+const addNewUser = async (postData) => {
+  const response = await fetch(`/api/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -82,4 +107,5 @@ export {
   updateApplicantDB,
   getResume,
   updateApplicantOrderDB,
+  addNewUser,
 };

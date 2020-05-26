@@ -51,7 +51,7 @@ const AddCardForm = ({ setModalState, setSwimlaneStates, swimlaneStates }) => {
       />
       <Button variant="outlined" component="label">
         <CloudUploadIcon />
-        Upload Resume*
+        Upload Resume* (.doc,.docx.,.pdf)
         <input
           onChange={(e) => {
             setFileUploadState(e.target.files[0].name);
