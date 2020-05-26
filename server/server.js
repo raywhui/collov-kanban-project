@@ -101,7 +101,9 @@ app.use('/api', upload.single('resume'), routes);
 /* @route
  * @desc get resume file
  */
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+);
 
 app.get('/files/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
