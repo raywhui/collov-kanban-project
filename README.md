@@ -34,7 +34,7 @@ MONGODB_URI=<mongodb-uri>
 MONGODB_URI=mongodb://heroku_5m1lf8wv:lqfa282u36e5e8ctlvr2dlost5@ds163377.mlab.com:63377/heroku_5m1lf8wv
 ```
 
-4. Run the applicant using `npm run start`, which will run both the server and React application at once.
+4. Run `npm run start`, which will run both the server and React application at once.
 
 ```bash
 npm run start
