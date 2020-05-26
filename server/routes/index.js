@@ -1,5 +1,5 @@
-import router from './routes.js';
+const router = require('./routes.js');
 
 const routes = router;
 
-export { routes };
+module.exports = routes;

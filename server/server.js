@@ -1,14 +1,14 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import { default as bodyParser } from 'body-parser';
-import crypto from 'crypto';
-import path from 'path';
-import GridFsStorage from 'multer-gridfs-storage';
-import Grid from 'gridfs-stream';
-import multer from 'multer';
-import session from 'express-session';
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const crypto = require('crypto');
+const path = require('path');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const multer = require('multer');
+const session = require('express-session');
 
-import { routes } from './routes';
+const { routes } = require('./routes');
 
 require('dotenv').config();
 
@@ -102,7 +102,7 @@ app.use('/api', upload.single('resume'), routes);
  * @desc get resume file
  */
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
 );
 
 app.get('/files/:filename', (req, res) => {

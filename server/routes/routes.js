@@ -1,6 +1,6 @@
-import express from 'express';
-import { applicantsController } from '../controllers';
-import { userController } from '../controllers';
+const express = require('express');
+const { applicantsController } = require('../controllers');
+const { userController } = require('../controllers');
 
 // API Routes Test
 const router = express.Router();
