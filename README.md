@@ -41,10 +41,35 @@ npm run start
 ```
 
 5. Navigate to `http://localhost:3000`, where you will be able to sign up and generate an account. If using the premade cloud database, `USER: admin` and `PW: admin` are already provided.
-   ![login]("./images/applicant.png")
+
+## Features Implemented
+
+- Kanban board styling similar to Trello
+- Homebrewed card drag and drop
+- Applicant status updates database on swimlane changes
+- Commenting system on cards
+- Uploadable/Downloadable Resumes (.doc, .docx, .pdf enforced both on frontend and backend)
+- User Authentication and Sign up
+- Logout feature
+- Full MVC Framework
+
+## Example Images
+
+Login Page:
+![login](./images/login.png)
+
+Homepage:
+![homepage](./images/homepage.png)
+
+More Info:
+![more info](./images/moreinfo.png)
+
+Applicant Signup
+![applicant signup](./images/applicant.png)
 
 ## Future Features
 
 - LOGIN PAGE SECURITY - The Login screen can be easily bypassed by changing the state. There is logic for session cookies in the server code, but ran out of time to implement a more robust solution
 - PERSISTENT LOGIN - Persistent login is not yet implemented. Refreshing the page will bring the user back to the login page. This can be resolved with the session cookies as stated above.
 - RATING SYSTEM - Applicant rating system was not implemented. Ideally, rating would be displayed under the email section with filled in stars out of 5. Database would house an array of ratings and the controller would average out the values in that array, giving us the average applicant rating. Rating the applicant would be in the MORE INFO drop down and would not show other user's ratings.
+- LIVE DEPLOYMENT - There were issues getting the app to run on a live Heroku instance. The issue mainly stemmed from the use of `nodemon` rather than `node`. This can be resolved using `rimraf` to compile the serverside code back into modules.
